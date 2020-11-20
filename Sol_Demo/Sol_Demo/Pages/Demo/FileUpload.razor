@@ -1,0 +1,31 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-sm-5">
+            <InputFile OnChange="this.OnInputFileChange" multiple></InputFile>
+
+            <span style="color:red">@this.UploadMessage</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-sm-5">
+            <button class="btn btn-secondary" @onclick="this.OnSubmit">Upload</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 col-sm-5">
+            @if (this.ImageDataUrls?.Count > 0)
+            {
+                <h4>Images</h4>
+
+                <div class="card" style="width:30rem;">
+                    <div class="card-body">
+                        @foreach (var imageDataUrl in this.ImageDataUrls)
+                        {
+                            <img class="rounded m-1" src="@imageDataUrl" />
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
